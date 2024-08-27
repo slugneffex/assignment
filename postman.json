@@ -1,0 +1,124 @@
+{
+    "info": {
+      "_postman_id": "d5e3c2f7-08b2-4f30-8d53-b6f786cb4e02",
+      "name": "User Management API",
+      "description": "Collection for User Management API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "GET All Users",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/users?limit=10&offset=0&search=John&sortKey=userName&sortOrder=ASC",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users"],
+            "query": [
+              { "key": "limit", "value": "10" },
+              { "key": "offset", "value": "0" },
+              { "key": "search", "value": "John" },
+              { "key": "sortKey", "value": "userName" },
+              { "key": "sortOrder", "value": "ASC" }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "GET Specific User",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/users/:id",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users", ":id"]
+          },
+          "description": "Replace :id with the actual user ID."
+        },
+        "response": []
+      },
+      {
+        "name": "POST Create User",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"permalink\": \"user3\",\n  \"userName\": \"Alice Smith\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\",\n  \"enabled\": true\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/users",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "PUT Update User",
+        "request": {
+          "method": "PUT",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"permalink\": \"user4\",\n  \"userName\": \"Bob Johnson\",\n  \"email\": \"bob@example.com\",\n  \"password\": \"newpassword123\",\n  \"enabled\": false,\n  \"deleted\": false\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/users/:id",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users", ":id"]
+          },
+          "description": "Replace :id with the actual user ID."
+        },
+        "response": []
+      },
+      {
+        "name": "PATCH Partial Update User",
+        "request": {
+          "method": "PATCH",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"userName\": \"Robert Johnson\",\n  \"enabled\": true\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/users/:id",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users", ":id"]
+          },
+          "description": "Replace :id with the actual user ID."
+        },
+        "response": []
+      },
+      {
+        "name": "DELETE User",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/users/:id",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["users", ":id"]
+          },
+          "description": "Replace :id with the actual user ID."
+        },
+        "response": []
+      }
+    ]
+  }
+  
